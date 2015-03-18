@@ -1,0 +1,7 @@
+<% provide :title,"User Index" %>
+<h1>User Index</h1>
+<ul class="users">
+    <% @all.each do |user| %>
+        <li><%= link_to user.name,user %></li>
+    <% end %>
+</ul>
