@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   
   resources :users
+  resources :microposts, only:[:create,:destroy]
   
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  
 
   
   # The priority is based upon order of creation: first created -> highest priority.

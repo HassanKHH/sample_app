@@ -14,3 +14,10 @@ password:"password", password_confirmation:"password", admin: true)
     email = "example" + n.to_s + "@example.com"
     User.create!(name: name, email: email, password: "password", password_confirmation: "password")
 end
+
+sampleUsers = User.order(:created_at).take(5)
+
+50.times do
+    sentence = Faker::Lorem.sentence(5)
+    sampleUsers.each {|u| u.microposts.create(content: sentence)}
+end
