@@ -1,2 +1,11 @@
 <%= @user.name%> , <%= @user.email%>
+<%if current_user == @user%>
+  <%= form_for(@micropost) do |f| %>
+    <%= f.label :text %>
+    <%= f.text_area :content, class: ‘form-control’ %>
+    <%= f.submit “Post!”, class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+
 <ol><%= render @user.microposts %></ol>
